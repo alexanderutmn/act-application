@@ -9,6 +9,8 @@
 	<!-- Optional theme -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
+	<link rel="stylesheet" href="js/jquery.datetimepicker.css">
+
 	<script
   src="https://code.jquery.com/jquery-3.3.1.min.js"
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
@@ -16,6 +18,8 @@
 
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+	<script src="js/jquery.datetimepicker.full.min.js"></script>
 
 </head>
 <body>
@@ -34,75 +38,245 @@
           </div>
           <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-              <li class="active"><a href="#">Генерация</a></li>
-              <li><a href="#">Акты</a></li>
-              <li><a href="#">Настройки</a></li>
-              <li><a href="#">Шаблоны актов</a></li>
+              <li><a href="create_act" data-type="tabs-custom">Генерация</a></li>
+              <li><a href="show_acts" data-type="tabs-custom">Акты</a></li>
+              <li><a href="settings" data-type="tabs-custom">Настройки</a></li>
+              <li><a href="templates_acts" data-type="tabs-custom">Шаблоны актов</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->
       </div>
 
-      <div class="container jumbotron">
-      	<div class="row">
-      		<div class="col-sm-5">
-      			Создание акта на основе:
-      			<div class="btn-group" data-toggle="buttons">
-				    <label class="btn btn-primary active">
-				        <input type="radio" name="options" id="option1" autocomplete="off" checked> Компания
-				    </label>
-				    <label class="btn btn-primary">
-				        <input type="radio" name="options" id="option2" autocomplete="off"> Контакт
-				    </label>
-				</div>
-      		</div>
-      		<div class="col-sm-5">
-      			<div class="input-group">
-			      <input type="text" class="form-control" placeholder="Введите название компании/контакта">
-			      <span class="input-group-btn">
-			        <button class="btn btn-default" type="button">Найти</button>
-			      </span>
-			    </div><!-- /input-group -->
-      		</div>
-      	</div>
-      	<div class="row" style="padding-top: 15px;">
-      		<div class="col-sm-3">
-      			 <label for="sel1">Выбрать компанию/контакт</label>
-				  <select class="form-control" id="sel1">
-				    <option>1</option>
-				    <option>2</option>
-				    <option>3</option>
-				    <option>4</option>
-				  </select>
-      		</div>
-      		<div class="col-sm-3">
-      			<label for="sel1">Выбрать сделку</label>
-				  <select class="form-control" id="sel1">
-				    <option>1</option>
-				    <option>2</option>
-				    <option>3</option>
-				    <option>4</option>
-				  </select>
-      		</div>
-      		<div class="col-sm-3">
-      			<label for="sel1">Выбрать счет</label>
-				  <select class="form-control" id="sel1">
-				    <option>1</option>
-				    <option>2</option>
-				    <option>3</option>
-				    <option>4</option>
-				  </select>
-      		</div>
-      		<div class="col-sm-3" style="padding-top: 25px;">
-      			<button class="btn btn-success">Создать</button>
-      		</div>
-      	</div>
-      </div>
-
-    <div id="main-body">
+    <div id="templates_acts" class="tab-page-custom">
+    	<div class="container jumbotron">
+	      	<div class="row">
+	      		<h1>Add templates</h1>
+	      		<button class="btn btn-success">Create</button>
+	      	</div>
+	    </div>
     </div>
 
-    <div id="create-act">
+    <div id="settings" class="tab-page-custom">
+    	<div class="container jumbotron">
+	      	<div class="row">
+	      		<h1>Add company</h1>
+	      		<button class="btn btn-success">Create</button>
+	      	</div>
+	    </div>
+	    <div class="container">
+	    	<div class="row">
+	    		<table class="table table-bordered">
+	    			<tbody>
+	    				<tr>
+	    					<td>
+	    						<label for="">Название исполнителя</label>
+	    						<input type="text" class="form-control">	
+	    					</td>
+	    					<td>
+	    						<label for="">Печать исполнителя (рекомендуемые размеры 150x150 px)</label>
+	    						<input type="file" class="">
+	    					</td>
+	    				</tr>
+	    				<tr>
+	    					<td>
+	    						<label for="">ИНН исполнителя</label>
+	    						<input type="text" class="form-control">	
+	    					</td>
+	    					<td>
+	    						<label for="">Подпись исполнителя (рекомендуемые размеры 150x50 px)</label>
+	    						<input type="file" class="">
+	    					</td>
+	    				</tr>
+	    				<tr>
+	    					<td>
+	    						<label for="">КПП исполнителя</label>
+	    						<input type="text" class="form-control">	
+	    					</td>
+	    				</tr>
+	    				<tr>
+	    					<td>
+	    						<label for="">Юр. адрес исполнителя</label>
+	    						<input type="text" class="form-control">	
+	    					</td>
+	    				</tr>
+	    				<tr>
+	    					<td>
+	    						<label for="">Подпись исполнителя (расшифровка)</label>
+	    						<input type="text" class="form-control">	
+	    					</td>
+	    				</tr>
+	    				<tr>
+	    					<td>
+	    						<label for="">Обратный почтовый адрес</label>
+	    						<input type="text" class="form-control">	
+	    					</td>
+	    				</tr>
+	    				
+	    			</tbody>
+		    	</table>
+	    	</div>
+	    	<div class="row">
+	    		<table class="table table-bordered">
+	    			<thead>
+	    				<tr>
+	    					<th>Название</th>
+	    					<th>Действия</th>
+	    				</tr>
+	    			</thead>
+	    			<tbody>
+	    				<tr>
+	    					<td>ООО "Приоритет"</td>
+	    					<td><a href="">update</a><a href="">remove</a></td>
+	    				</tr>
+	    			</tbody>
+	    		</table>
+	    	</div>
+	    </div>
+    </div>
+
+    <div id="show_acts" style="" class="tab-page-custom">
+    	<div class="container jumbotron">
+	      	<div class="row">
+	      		<div class="col-sm-3">
+	      			<div class="input-group">
+	      				<label for="">Заказчик</label>
+				      	<input type="text" class="form-control" placeholder="Заказчик">
+				    </div><!-- /input-group -->
+	      		</div>
+	      		<div class="col-sm-2">
+	      			<div class="input-group">
+	      				<label for="">Дата от</label>
+				      	<input type="text" class="form-control" id="date_start">
+				    </div><!-- /input-group -->
+	      		</div>
+	      		<div class="col-sm-2">
+	      			<div class="input-group">
+	      				<label for="">Дата до</label>
+				      	<input type="text" class="form-control" id="date_end">
+				    </div><!-- /input-group -->
+	      		</div>
+	      		<div class="col-sm-2">
+	      			<div class="input-group">
+	      				<label for="">Сумма от</label>
+				      	<input type="text" class="form-control" >
+				    </div><!-- /input-group -->
+	      		</div>
+	      		<div class="col-sm-2">
+	      			<div class="input-group">
+	      				<label for="">Сумма до</label>
+				      	<input type="text" class="form-control" >
+				    </div><!-- /input-group -->
+	      		</div>
+	      	</div>
+	      	<div class="row" style="padding-top: 15px;">
+	      		<div class="col-sm-2">
+	      			<div class="input-group">
+	      				<label for="">Номер акта</label>
+				      	<input type="text" class="form-control" >
+				    </div><!-- /input-group -->
+	      		</div>
+	      		<div class="col-sm-3">
+	      			<label for="sel1">Статус акта</label>
+					  <select class="form-control" id="sel1">
+					    <option>1</option>
+					    <option>2</option>
+					    <option>3</option>
+					    <option>4</option>
+					  </select>
+	      		</div>
+	      		<div class="col-sm-3" style="padding-top: 25px;">
+	      			<button class="btn btn-success">Искать</button>
+	      		</div>
+	      	</div>
+	    </div>
+	    <div class="container">
+	    	<div class="row">
+	    		<table class="table table-bordered table-hover">
+	    			<thead>
+	    				<tr>
+	    					<th>Дата</th>
+	    					<th>Номер акта</th>
+	    					<th>Исполнитель</th>
+	    					<th>Заказчик</th>
+	    					<th>Основание</th>
+	    					<th>Сумма</th>
+	    					<th>Действия</th>
+	    				</tr>
+	    			</thead>
+	    			<tbody>
+	    				<tr>
+	    					<td>
+	    						12.12.12
+	    					</td>
+	    					<td>1</td>
+	    					<td>ООО "Приоритет"</td>
+	    					<td>Заказчик</td>
+	    					<td></td>
+	    					<td>12000</td>
+	    					<td><a href="">Редактировать</a><a href="">Печатать без печати</a><a href="">Печатать с печатью</a><a href="">Удалить</a></td>
+	    				</tr>
+	    			</tbody>
+		    	</table>
+	    	</div>
+	    </div>
+    </div>
+
+    <div id="create_act" class="tab-page-custom">
+    	<div class="container jumbotron">
+	      	<div class="row">
+	      		<div class="col-sm-5">
+	      			<label for="">Создание акта на основе:</label>
+	      			<div class="btn-group" data-toggle="buttons">
+					    <label class="btn btn-primary active">
+					        <input type="radio" name="options" id="option1" autocomplete="off" checked> Компания
+					    </label>
+					    <label class="btn btn-primary">
+					        <input type="radio" name="options" id="option2" autocomplete="off"> Контакт
+					    </label>
+					</div>
+	      		</div>
+	      		<div class="col-sm-5">
+	      			<div class="input-group">
+				      <input type="text" class="form-control" placeholder="Введите название компании/контакта">
+				      <span class="input-group-btn">
+				        <button class="btn btn-default" type="button">Найти</button>
+				      </span>
+				    </div><!-- /input-group -->
+	      		</div>
+	      	</div>
+	      	<div class="row" style="padding-top: 15px;">
+	      		<div class="col-sm-3">
+	      			 <label for="sel1">Выбрать компанию/контакт</label>
+					  <select class="form-control" id="sel1">
+					    <option>1</option>
+					    <option>2</option>
+					    <option>3</option>
+					    <option>4</option>
+					  </select>
+	      		</div>
+	      		<div class="col-sm-3">
+	      			<label for="sel1">Выбрать сделку</label>
+					  <select class="form-control" id="sel1">
+					    <option>1</option>
+					    <option>2</option>
+					    <option>3</option>
+					    <option>4</option>
+					  </select>
+	      		</div>
+	      		<div class="col-sm-3">
+	      			<label for="sel1">Выбрать счет</label>
+					  <select class="form-control" id="sel1">
+					    <option>1</option>
+					    <option>2</option>
+					    <option>3</option>
+					    <option>4</option>
+					  </select>
+	      		</div>
+	      		<div class="col-sm-3" style="padding-top: 25px;">
+	      			<button class="btn btn-success">Создать</button>
+	      		</div>
+	      	</div>
+	      </div>
     	<table class="table table-bordered table-hover">
 		    <tbody>
 		        <tr>
@@ -113,7 +287,7 @@
 		            </td>
 		            <td>
 		            	<label for="">Дата</label>
-		            	<input type="text" class="form-control">
+		            	<input type="text" class="form-control" id="date_act">
 		            </td>
 		        </tr>
 		        <tr>
@@ -135,14 +309,12 @@
 	                <td>Исполнитель(ИНН):</td>
 	                <td><input type="text" class="form-control" name="EXECUTER_INN"></td>
 	                <td>
-	                    <!--button class="btn btn-primary" rel="EXECUTER_INN">Подставить из настроек</button-->
 	                </td>
 	            </tr>
 	            <tr>
 	                <td>Исполнитель(КПП):</td>
 	                <td><input type="text" class="form-control" name="EXECUTER_KPP"></td>
 	                <td>
-	                    <!--button class="btn btn-primary" rel="EXECUTER_KPP">Подставить из настроек</button-->
 	                </td>
 	            </tr>
 	            <tr>
@@ -163,37 +335,30 @@
 	            <tr>
 	                <td>Товары:</td>
 	                <td>
-	                	<table class="table table-bordered" id="article-table">
+	                	<table class="table table-bordered" id="article_table">
 						    <thead>
 						        <tr>
 						            <th>Наименование</th>
 						            <th>Цена</th>
 						            <th>Кол-во</th>
-						            <th><button class="btn btn-light btn-xs" id="add-article">Добавить</button></th>
+						            <th><button class="btn btn-light btn-xs" id="add_article">Добавить</button></th>
 						        </tr>
 						    </thead>
 						    <tbody>
 						        <tr>
-						            <td data-type="article">1</td>
-						            <td data-type="article">Иван</td>
-						            <td data-type="article">Чмель</td>
+						            <td data-type="article-td">Создание</td>
+						            <td data-type="article-td">5000</td>
+						            <td data-type="article-td">1</td>
 						            <td><button class="btn btn-danger btn-xs remove-article">Удалить</button></td>
 						        </tr>
 						        <tr>
-						            <td data-type="article">2</td>
-						            <td data-type="article">Петр</td>
-						            <td data-type="article">Щербаков</td>
-						            <td><button class="btn btn-danger btn-xs remove-article">Удалить</button></td>
-						        </tr>
-						        <tr>
-						            <td data-type="article">3</td>
-						            <td data-type="article">Юрий</td>
-						            <td data-type="article">Голов</td>
+						            <td data-type="article-td">Дизайн</td>
+						            <td data-type="article-td">2000</td>
+						            <td data-type="article-td">1</td>
 						            <td><button class="btn btn-danger btn-xs remove-article">Удалить</button></td>
 						        </tr>
 						    </tbody>
 						</table>
-	                    <!-- <div class="goods" id="goods-table"><table id="goods-table-newact" class="goods-table"><thead><tr><th><a style="cursor: pointer;">Наименование</a></th><th class="number"><a style="cursor: pointer;">Цена</a></th><th class="number"><a style="cursor: pointer;">Кол-во</a></th><th><a title="Добавить товар" class="button-add-goods" onclick="add_goods_item()" style="cursor: pointer">добавить</a></th></tr></thead><tbody></tbody></table></div> -->
 	                </td>
 	                <td>
 						<button class="btn btn-primary">Подставить из сделки</button>
@@ -213,7 +378,7 @@
 
     <script>
     	
-    	$('body').on('dblclick', '[data-type="article"]', function () {
+    	$('body').on('dblclick', '[data-type="article-td"]', function () {
         	var ob = $(this);
 	       	var val = $(this).text();
 	       	$(this).html('<input type="text" id="changeInput" class="form-control" value="'+val+'" >');
@@ -223,7 +388,7 @@
 	       });
 	   });
 
-    	$('body').on('click', '#add-article', function () {
+    	$('body').on('click', '#add_article', function () {
     		var templateTrArticle = $('<tr/>', {
 				append: $('<td/>', {
 			  		// text: 'Наименование',
@@ -234,7 +399,7 @@
 			  		'data-type': 'article',
 			  	})
 			  	.add('<td/>', {
-			  		// text: 'Кол-во',
+			  		text: '1',
 			  		'data-type': 'article',
 			  	})
 			  	.add('<td/>', {
@@ -244,14 +409,49 @@
 			  		})
 			  	})
 			}); 
-    		$("#article-table tbody").append(templateTrArticle);
+    		$("#article_table tbody").append(templateTrArticle);
     	});
 
     	$('body').on('click', '.remove-article', function () {
     		$(this).parent().parent().remove();
     	});
+    	$('body').on('click', '[data-type="tabs-custom"]', function (e) {
+    		e.preventDefault();
+    		var id = $(this).attr('href');
+    		$('[data-type="tabs-custom"]').parent().removeClass('active');
+    		$(this).parent().addClass('active');
+    		$('.tab-page-custom').css({'display':'none'});
+    		$('#'+id).css({'display':'block'});
+    	});
+
+    	//datetimepicker
+        $.datetimepicker.setLocale('ru');
+        $('#date_act').datetimepicker({
+            format: 'Y/m/d',
+            dayOfWeekStart: 1,
+            timepicker: false
+        });
+
+        $('#date_start').datetimepicker({
+            format: 'Y/m/d',
+            dayOfWeekStart: 1,
+            timepicker: false
+        });
+
+        $('#date_end').datetimepicker({
+            format: 'Y/m/d',
+            dayOfWeekStart: 1,
+            timepicker: false
+        });
+
     	 
 
     </script>
+
+    <style>
+    	.tab-page-custom{
+    		display: none;
+    	}
+    </style>
 </body>
 </html>
