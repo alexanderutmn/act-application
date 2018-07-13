@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Акты</title>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+	<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+</head>
+<body>
+	<div class="container">
+
+      <!-- Static navbar -->
+      <div class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          </div>
+          <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="#">Генерация</a></li>
+              <li><a href="#">Акты</a></li>
+              <li><a href="#">Настройки</a></li>
+              <li><a href="#">Шаблоны актов</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </div>
+
+      <div class="container jumbotron">
+      	<div class="row">
+      		<div class="col-sm-5">
+      			Создание акта на основе:
+      			<div class="btn-group" data-toggle="buttons">
+				    <label class="btn btn-primary active">
+				        <input type="radio" name="options" id="option1" autocomplete="off" checked> Компания
+				    </label>
+				    <label class="btn btn-primary">
+				        <input type="radio" name="options" id="option2" autocomplete="off"> Контакт
+				    </label>
+				</div>
+      		</div>
+      		<div class="col-sm-5">
+      			<div class="input-group">
+			      <input type="text" class="form-control" placeholder="Введите название компании/контакта">
+			      <span class="input-group-btn">
+			        <button class="btn btn-default" type="button">Найти</button>
+			      </span>
+			    </div><!-- /input-group -->
+      		</div>
+      	</div>
+      	<div class="row" style="padding-top: 15px;">
+      		<div class="col-sm-3">
+      			 <label for="sel1">Выбрать компанию/контакт</label>
+				  <select class="form-control" id="sel1">
+				    <option>1</option>
+				    <option>2</option>
+				    <option>3</option>
+				    <option>4</option>
+				  </select>
+      		</div>
+      		<div class="col-sm-3">
+      			<label for="sel1">Выбрать сделку</label>
+				  <select class="form-control" id="sel1">
+				    <option>1</option>
+				    <option>2</option>
+				    <option>3</option>
+				    <option>4</option>
+				  </select>
+      		</div>
+      		<div class="col-sm-3">
+      			<label for="sel1">Выбрать счет</label>
+				  <select class="form-control" id="sel1">
+				    <option>1</option>
+				    <option>2</option>
+				    <option>3</option>
+				    <option>4</option>
+				  </select>
+      		</div>
+      		<div class="col-sm-3" style="padding-top: 25px;">
+      			<button class="btn btn-success">Создать</button>
+      		</div>
+      	</div>
+      </div>
+
+    <div id="main-body">
+    </div>
+
+    <div id="create-act">
+    	<table class="table table-bordered table-hover">
+		    <tbody>
+		        <tr>
+		            <td></td>
+		            <td>
+		            	<label for="">Номер акта</label>
+		            	<input type="text" class="form-control">
+		            </td>
+		            <td>
+		            	<label for="">Дата</label>
+		            	<input type="text" class="form-control">
+		            </td>
+		        </tr>
+		        <tr>
+		            <td>Исполнитель:</td>
+		            <td><input type="text" class="form-control"></td>
+		            <td>
+		            	<select class="form-control" id="sel1">
+						    <option>ООО "Приоритет"</option>
+						</select>
+					</td>
+		        </tr>
+		        <tr >
+	                <td>Обратный адрес:</td>
+	                <td><input type="text" class="form-control" name="POSTAL_ADDRESS_BACK"></td>
+	                <td>
+	                </td>
+	            </tr>
+	             <tr>
+	                <td>Исполнитель(ИНН):</td>
+	                <td><input type="text" class="form-control" name="EXECUTER_INN"></td>
+	                <td>
+	                    <!--button class="btn btn-primary" rel="EXECUTER_INN">Подставить из настроек</button-->
+	                </td>
+	            </tr>
+	            <tr>
+	                <td>Исполнитель(КПП):</td>
+	                <td><input type="text" class="form-control" name="EXECUTER_KPP"></td>
+	                <td>
+	                    <!--button class="btn btn-primary" rel="EXECUTER_KPP">Подставить из настроек</button-->
+	                </td>
+	            </tr>
+	            <tr>
+	                <td>Заказчик:</td>
+	                <td><input type="text" class="form-control" name="customer"></td>
+	                <td>
+						<button class="btn btn-primary" rel="customer" data-source="deal">Подставить из сделки</button>
+						<button class="btn btn-primary" rel="customer" data-source="invoice">Подставить из счета</button>
+	                </td>
+	            </tr>
+	            <tr>
+	                <td>Основание:</td>
+	                <td><textarea class="form-control" name="descr" spellcheck="false"></textarea></td>
+	                <td>
+	                    <button class="btn btn-primary" rel="descr">Подставить из счета</button>
+	                </td>
+	            </tr>
+	            <tr>
+	                <td>Товары:</td>
+	                <td>
+	                	<table class="table table-bordered" id="article-table">
+						    <thead>
+						        <tr>
+						            <th>Наименование</th>
+						            <th>Цена</th>
+						            <th>Кол-во</th>
+						            <th><button class="btn btn-light btn-xs" id="add-article">Добавить</button></th>
+						        </tr>
+						    </thead>
+						    <tbody>
+						        <tr>
+						            <td data-type="article">1</td>
+						            <td data-type="article">Иван</td>
+						            <td data-type="article">Чмель</td>
+						            <td><button class="btn btn-danger btn-xs remove-article">Удалить</button></td>
+						        </tr>
+						        <tr>
+						            <td data-type="article">2</td>
+						            <td data-type="article">Петр</td>
+						            <td data-type="article">Щербаков</td>
+						            <td><button class="btn btn-danger btn-xs remove-article">Удалить</button></td>
+						        </tr>
+						        <tr>
+						            <td data-type="article">3</td>
+						            <td data-type="article">Юрий</td>
+						            <td data-type="article">Голов</td>
+						            <td><button class="btn btn-danger btn-xs remove-article">Удалить</button></td>
+						        </tr>
+						    </tbody>
+						</table>
+	                    <!-- <div class="goods" id="goods-table"><table id="goods-table-newact" class="goods-table"><thead><tr><th><a style="cursor: pointer;">Наименование</a></th><th class="number"><a style="cursor: pointer;">Цена</a></th><th class="number"><a style="cursor: pointer;">Кол-во</a></th><th><a title="Добавить товар" class="button-add-goods" onclick="add_goods_item()" style="cursor: pointer">добавить</a></th></tr></thead><tbody></tbody></table></div> -->
+	                </td>
+	                <td>
+						<button class="btn btn-primary">Подставить из сделки</button>
+						<button class="btn btn-primary">Подставить из счета</button>
+	                </td>
+	            </tr>
+	            <tr>
+	            	<td></td>
+	            	<td></td>
+	            	<td><button id="go-create" class="btn btn-success">Генерировать</button></td>
+	            </tr>
+		    </tbody>
+		</table>
+    </div>
+
+    </div>
+
+    <script>
+    	
+    	$('body').on('dblclick', '[data-type="article"]', function () {
+        	var ob = $(this);
+	       	var val = $(this).text();
+	       	$(this).html('<input type="text" id="changeInput" class="form-control" value="'+val+'" >');
+	       	$('#changeInput').focus();
+	       	$('#changeInput').blur(function () {
+	           	$(ob).html($(this).val());
+	       });
+	   });
+
+    	$('body').on('click', '#add-article', function () {
+    		var templateTrArticle = $('<tr/>', {
+				append: $('<td/>', {
+			  		// text: 'Наименование',
+			  		'data-type': 'article',
+			  	})
+			  	.add('<td/>', {
+			  		// text: 'Цена',
+			  		'data-type': 'article',
+			  	})
+			  	.add('<td/>', {
+			  		// text: 'Кол-во',
+			  		'data-type': 'article',
+			  	})
+			  	.add('<td/>', {
+			  		append: $('<button/>',{
+			  			class: 'btn btn-danger btn-xs remove-article',
+			  			text: 'Удалить',
+			  		})
+			  	})
+			}); 
+    		$("#article-table tbody").append(templateTrArticle);
+    	});
+
+    	$('body').on('click', '.remove-article', function () {
+    		$(this).parent().parent().remove();
+    	});
+    	 
+
+    </script>
+</body>
+</html>
